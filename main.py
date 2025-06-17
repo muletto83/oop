@@ -6,8 +6,9 @@ A property called damage initialized to 2
 A property called length initialized to 4'''
 
 class Wall:
-    pass
-
+    armor = 10
+    height = 5
 
 class BatteringRam:
-    pass
+    damage = 2
+    length = 4
