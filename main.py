@@ -1,16 +1,40 @@
 '''Assignment
-Add a constructor to the Wall class.
-It should take 
-depth 
-height
-width 
-as parameters, in that order, and set them as instance properties.
-Compute an additional property called volume. 
-Volume is the depth times height times width.'''
-class Wall:
-    def __init__(self, depth, height, width):
-        # TODO: Implement the constructor
-        self.depth = depth
-        self.height = height
-        self.width = width
-        self.volume = depth * height * width
+Take a look at the Brawler class and the fight function provided, then complete the main function by doing the following:
+
+Create 4 new brawlers with the following stats:
+Name: Aragorn. Speed: 4. Strength: 4.
+Name: Gimli. Speed: 2. Strength: 7.
+Name: Legolas. Speed: 7. Strength: 7.
+Name: Frodo. Speed: 3. Strength: 2.
+Call fight twice:
+The first fight should be Aragorn vs Gimli.
+The second will be Legolas vs Frodo.'''
+
+def main():
+    pass
+
+
+# don't touch below this line
+
+
+class Brawler:
+    def __init__(self, name, speed, strength):
+        self.name = name
+        self.speed = speed
+        self.strength = strength
+        self.power = speed * strength
+
+
+def fight(f1, f2):
+    print(f"{f1.name}: {f1.power} power")
+    print(f"{f2.name}: {f2.power} power")
+    if f1.power > f2.power:
+        print(f"{f1.name} wins!")
+    elif f1.power < f2.power:
+        print(f"{f2.name} wins!")
+    else:
+        print("It's a tie!")
+    print("---------------------------------")
+
+
+main()
