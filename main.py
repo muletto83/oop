@@ -1,6 +1,9 @@
-def destroy_walls(wall_healths):
-    new_wall_healths = []
-    for wall_health in wall_healths:
-        if wall_health > 0:
-            new_wall_healths.append(wall_health)
-    return new_wall_healths
+def fight_soldiers(soldier_one, soldier_two):
+    soldier_one_dps = soldier_one["damage"] * soldier_one["attacks_per_second"]
+    soldier_two_dps = soldier_two["damage"] * soldier_two["attacks_per_second"]
+    get_soldier_dps = 
+    if soldier_one_dps > soldier_two_dps:
+        return "soldier 1 wins"
+    if soldier_two_dps > soldier_one_dps:
+        return "soldier 2 wins"
+    return "both soldiers die"
