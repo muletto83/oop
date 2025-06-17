@@ -9,4 +9,8 @@ Compute an additional property called volume.
 Volume is the depth times height times width.'''
 class Wall:
     def __init__(self, depth, height, width):
-        pass
+        # TODO: Implement the constructor
+        self.depth = depth
+        self.height = height
+        self.width = width
+        self.volume = depth * height * width
