@@ -1,23 +1,12 @@
-'''
-Building walls in Age of Dragons can be expensive,
-the larger and stronger the wall, the more it costs.
-Complete the .get_cost() method on the Wall class. 
-It should return the cost of a wall,
-where the cost is its armor multiplied by its height.
-'''
-
+'''Assignment
+Add a constructor to the Wall class.
+It should take 
+depth 
+height
+width 
+as parameters, in that order, and set them as instance properties.
+Compute an additional property called volume. 
+Volume is the depth times height times width.'''
 class Wall:
-    armor = 10
-    height = 5
-
-    def get_cost(self):
-        # Calculate the cost of the wall
-        # Cost is defined as armor multiplied by height
-        return self.armor * self.height
-        
-
-    # don't touch below this line
-
-    def fortify(self):
-
-        self.armor *= 2
+    def __init__(self, depth, height, width):
+        pass
