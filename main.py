@@ -1,14 +1,9 @@
-'''Create a class called Wall. It should have:
-A property called armor initialized to (initially set to) 10
-A property called height initialized to 5
-Create a class called BatteringRam. It should have:
-A property called damage initialized to 2
-A property called length initialized to 4'''
+'''Complete the fortify() method on the wall class. 
+It should double the current armor property.'''
 
 class Wall:
     armor = 10
     height = 5
 
-class BatteringRam:
-    damage = 2
-    length = 4
+    def fortify(self):
+        pass
