@@ -11,7 +11,10 @@ class Wall:
     height = 5
 
     def get_cost(self):
-        pass
+        # Calculate the cost of the wall
+        # Cost is defined as armor multiplied by height
+        return self.armor * self.height
+        
 
     # don't touch below this line
 
