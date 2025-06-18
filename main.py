@@ -11,9 +11,12 @@ The first fight should be Aragorn vs Gimli.
 The second will be Legolas vs Frodo.'''
 
 def main():
-    pass
-
-
+    brawler_Aragorn = Brawler("Aragorn", 4, 4)
+    brawler_Gimli = Brawler("Gimli", 2, 7)
+    brawler_Legolas = Brawler("Legolas", 7, 7)
+    brawler_Frodo = Brawler("Frodo", 3, 2)
+    fight(brawler_Aragorn, brawler_Gimli)
+    fight(brawler_Legolas, brawler_Frodo)
 # don't touch below this line
 
 
