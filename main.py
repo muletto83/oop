@@ -1,43 +1,34 @@
 '''Assignment
-Take a look at the Brawler class and the fight function provided, then complete the main function by doing the following:
+Complete the Archer class.
 
-Create 4 new brawlers with the following stats:
-Name: Aragorn. Speed: 4. Strength: 4.
-Name: Gimli. Speed: 2. Strength: 7.
-Name: Legolas. Speed: 7. Strength: 7.
-Name: Frodo. Speed: 3. Strength: 2.
-Call fight twice:
-The first fight should be Aragorn vs Gimli.
-The second will be Legolas vs Frodo.'''
+Complete the constructor. It should take the following parameters in order and set them as instance properties:
+name
+health
+num_arrows
+Complete the take_hit method. It operates on the current archer instance.
+If the archer has no health, raise the exception: {NAME} is dead where {NAME} is the archer's name.
+Otherwise, remove one health from the current archer.
+Finish the shoot method. It takes an Archer instance as its target input.
+If the shooter has no arrows left, raise an exception {NAME} can't shoot where {NAME} is the shooter's name.
+Otherwise, remove an arrow from the shooter.
+Print {1} shoots {2} where {1} is the shooter's name and {2} is the name of the targeted archer.
+Call the target's take_hit() method.
+'''
 
-def main():
-    brawler_Aragorn = Brawler("Aragorn", 4, 4)
-    brawler_Gimli = Brawler("Gimli", 2, 7)
-    brawler_Legolas = Brawler("Legolas", 7, 7)
-    brawler_Frodo = Brawler("Frodo", 3, 2)
-    fight(brawler_Aragorn, brawler_Gimli)
-    fight(brawler_Legolas, brawler_Frodo)
-# don't touch below this line
+class Archer:
+    def __init__(self, name, health, num_arrows):
+        pass
 
+    def take_hit(self):
+        pass
 
-class Brawler:
-    def __init__(self, name, speed, strength):
-        self.name = name
-        self.speed = speed
-        self.strength = strength
-        self.power = speed * strength
+    def shoot(self, target):
+        pass
 
+    # don't touch below this line
 
-def fight(f1, f2):
-    print(f"{f1.name}: {f1.power} power")
-    print(f"{f2.name}: {f2.power} power")
-    if f1.power > f2.power:
-        print(f"{f1.name} wins!")
-    elif f1.power < f2.power:
-        print(f"{f2.name} wins!")
-    else:
-        print("It's a tie!")
-    print("---------------------------------")
+    def get_status(self):
+        return self.name, self.health, self.num_arrows
 
-
-main()
+    def print_status(self):
+        print(f"{self.name} has {self.health} health and {self.num_arrows} arrows")
