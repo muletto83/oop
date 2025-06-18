@@ -17,13 +17,21 @@ Call the target's take_hit() method.
 
 class Archer:
     def __init__(self, name, health, num_arrows):
-        pass
+        self.name = name
+        self.health = health
+        self.num_arrows = num_arrows
 
     def take_hit(self):
-        pass
+        self.health -= 1 # reduce health by 1
+        if self.health < 0:
+            raise Exception(f"{self.name} is dead")
 
     def shoot(self, target):
-        pass
+        if self.num_arrows <= 0:
+            raise Exception(f"{self.name} can't shoot")
+        print(f"{self.name} shoots {target.name}")
+        self.num_arrows -= 1
+        target.take_hit()  # call the target's take_hit method
 
     # don't touch below this line
 
