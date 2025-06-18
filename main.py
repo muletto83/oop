@@ -1,44 +1,46 @@
 '''
 Assignment
-Some lazy class variable code written by another dev team 
-at Age of Dragons Studios is causing bugs in our team's Dragon class.
-In the main() function (that our team isn't responsible for) the line:
-Dragon.element = "fire"
-should not affect our existing Dragon instances!
-The Dragon class should be safe to use in other parts of the codebase,
-even if silly developers are out there changing class-level variables.
-Fix the Dragon class.
-Remove the element class variable.
-Use an instance variable for element, and allow it to be set in the constructor.
+You've been tasked with writing the code for the wizard library.
+Complete the Library and Book classes listed below.
+Create the Book Class:
+Create the __init__(self, title, author) method
+Set .title and .author to the values of the parameters.
+Create the Library Class:
+Create the __init__(self, name) method
+Initialize a .name member variable to the value of the name parameter.
+Create a .books member initialized to an empty list.
+Add the add_book(self, book) method:
+Add book, the given Book instance, to the library's books instance variable by appending it to the end of the list.
+Add the remove_book(self, book) method:
+Create a new, empty list to hold the books you want to keep.
+Loop through every book in the library’s books list.
+If the book’s title and author do not match the one you want to remove, add it to the new list.
+After checking all the books, replace the library’s books list with the new list.
+Add the search_books(self, search_string) method:
+For every book in the library check if the search_string is contained in the title or author field (case-insensitive).
+Return a list of all books that match the search string, ordered in the same order as they were added to the library.
+After a book is removed, it should no longer be returned in the search results.
+
+Tips
+You can use the .lower() method to convert a string to lowercase.
+Avoid modifying a list while looping over it because it can skip items or cause errors; instead, create a new list with the items you want to keep or loop over a copy.
 '''
 
-class Dragon:
-
-    def __init__(self, element):
-        self.element = element
-
-    def get_breath_damage(self):
-        if self.element == "fire":
-            return 300
-        if self.element == "ice":
-            return 150
-        return 0
+class Book:
+    def __init__(self, title, author):
+        pass
 
 
-# don't touch below this line
+class Library:
+    def __init__(self, name):
+        pass
 
+    def add_book(self, book):
+        pass
 
-def main():
-    first_dragon = Dragon("fire")
-    print(
-        f"{first_dragon.element} dragon does {first_dragon.get_breath_damage()} damage"
-    )
+    def remove_book(self, book):
+        pass
 
-    second_dragon = Dragon("ice")
-    Dragon.element = "fire"
-    print(
-        f"{second_dragon.element} dragon does {second_dragon.get_breath_damage()} damage"
-    )
+    def search_books(self, search_string):
+        pass
 
-
-main()
