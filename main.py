@@ -1,15 +1,18 @@
 '''
 Assignment
-Complete the following methods on the Wizard class:
-
-get_fireballed() should:
-Reduce the fireball_damage by the wizard's __stamina
-Reduce the wizard's health by the resulting fireball_damage
-drink_mana_potion() should:
-Increase the potion_mana by the wizard's __intelligence
-Increase the wizard's mana by the resulting potion_mana
-Both methods operate directly on the instance of the class (self).
-They take one input and return no values explicitly.
+Complete the cast_fireball method:
+If there isn't enough mana to cast a fireball
+(see fireball_cost at the top of the file),
+raise an Exception with the message 
+____ cannot cast fireball,
+where ____ is the wizard's name.
+If the wizard has enough mana,
+reduce their mana by the fireball_cost 
+and call get_fireballed on the target wizard
+with the given fireball_damage.
+Complete the is_alive method. 
+It should return True 
+if the wizard's health is greater than 0 and False otherwise.
 '''
 
 class Wizard:
@@ -20,7 +23,11 @@ class Wizard:
         self.mana = self.__intelligence * 10
         self.health = self.__stamina * 100
 
-    # don't touch above this line
+    def cast_fireball(self, target, fireball_cost, fireball_damage):
+        pass
+
+    def is_alive(self):
+        pass
 
     def get_fireballed(self, fireball_damage):
         fireball_damage -= self.__stamina
