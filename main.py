@@ -1,43 +1,37 @@
 '''
 Assignment
-Complete the BankAccount class.
+We don't want our coworkers at Age of Dragons Studios™ to have to worry about how Humans move. 
+We'll abstract that away from them,
+by encapsulating the private __pos_x, __pos_y, and __speed variables behind some simple methods.
 
-Complete the constructor
-Set __account_number to account_number
-Set __balance to initial_balance
-Complete the public getters
-Complete the get_account_number method to get the value of the private variable __account_number and return it.
-Complete the get_balance method to get the value of the private variable __balance and return it.
-Complete the deposit method
-It should accept an amount as input and add it to the account balance.
-If the deposit amount isn't positive, it should raise a ValueError exception with the message cannot deposit zero or negative funds. Otherwise, it should add the amount to the balance.
-Complete the withdraw method
-It should accept an amount and check if there is enough money in the account for the withdrawal.
-If the withdrawal amount isn't positive, it should raise a ValueError exception with the message cannot withdraw zero or negative funds.
-Then, if there are not enough funds it should raise a ValueError exception with the message insufficient funds.
-Otherwise, it should deduct the amount from the balance
+Complete the following methods in the Human class:
+
+move_right(): Adds the human's speed to its x position.
+move_left(): Subtracts the human's speed from its x position.
+move_up(): Adds the human's speed to its y position.
+move_down(): Subtracts the human's speed from its y position.
+get_position(): Returns the x position and y position as a tuple.
 '''
 
-class BankAccount:
-    def __init__(self, account_number, initial_balance):
-        self.__account_number = account_number
-        self.__balance = initial_balance
+class Human:
+    def __init__(self, pos_x, pos_y, speed):
+        self.__pos_x = pos_x
+        self.__pos_y = pos_y
+        self.__speed = speed
 
-    def get_account_number(self):
-        return self.__account_number
-        
-    def get_balance(self):
-        return self.__balance
-    
-    def deposit(self, amount):
-        if amount <= 0:
-            raise ValueError("cannot deposit zero or negative funds")
-        self.__balance += amount
+    def move_right(self):
+        pass
 
-    def withdraw(self, amount):
-        if amount <= 0:
-            raise ValueError("cannot withdraw zero or negative funds")
-        if amount > self.__balance:
-            raise ValueError("insufficient funds")
-        self.__balance -= amount
+    def move_left(self):
+        pass
+
+    def move_up(self):
+        pass
+
+    def move_down(self):
+        pass
+
+    def get_position(self):
+        pass
+
 
