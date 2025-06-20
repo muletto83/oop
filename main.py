@@ -1,69 +1,33 @@
 '''
 Assignment
-Finish the DeckOfCards class. 
-The SUITS and RANKS of each card have been provided for you as class variables. 
-You won't need to modify them, but you will need to use them.
+In Age of Dragons, all the archers are humans, 
+but not all humans are necessarily archers.
+All humans have a name,
+but only archers have a __num_arrows property.
 
-Complete the constructor:
-Initialize a private empty list called cards.
-Fill that empty list by calling the create_deck method within the constructor.
-Complete the create_deck(self) method:
-Create a (Rank, Suit) tuple for all 52 cards in the deck and append them to the cards list.
-Order matters! The cards should be appended to the list in the following order: 
-all ranks of hearts, 
-then diamonds, 
-then clubs, 
-and finally spades. 
+Complete the Archer class. It should inherit the Human class.
 
-Within each suit, 
-the cards should be ordered from lowest rank (Ace) to highest rank (King).
-
-Complete the shuffle_deck(self) method:
-Use the random.shuffle() method (available from the random package) to shuffle the cards in the deck.
-Complete the deal_card(self) method:
-.pop() the first card off the top of the deck (top of the deck is the end of the list) and return it. 
-If there are no cards left in the deck the method should instead return None.
+Its constructor should:
+Call the parent constructor
+Set the private __num_arrows property based
+on the constructor parameter
+Its get_num_arrows() method should return the number of arrows 
+the archer has.
 '''
-import random
+class Human:
+    def __init__(self, name):
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
 
 
-class DeckOfCards:
-    SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
-    RANKS = [
-        "Ace",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "Jack",
-        "Queen",
-        "King",
-    ]
+## don't touch above this line
 
-    def __init__(self):
-        self.__cards = []
-        self.create_deck()
 
-    def create_deck(self):
-        for suit in self.SUITS:
-            for rank in self.RANKS:
-                self.__cards.append((rank, suit))
+class Archer:
+    def __init__(self, name, num_arrows):
+        pass
 
-    def shuffle_deck(self):
-        random.shuffle(self.__cards)
-
-    def deal_card(self):
-        if self.__cards:
-            return self.__cards.pop()
-        else:
-            return None
-
-    # don't touch below this line
-
-    def __str__(self):
-        return f"The deck has {len(self.__cards)} cards"
+    def get_num_arrows(self):
+        pass
