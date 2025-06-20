@@ -44,7 +44,11 @@ class Archer(Hero):
 
 class Wizard(Hero):
     def __init__(self, name, health, mana):
-        pass
-
+        super().__init__(name, health)
+        self.__mana = mana
+    
     def cast(self, target):
-        pass
+        if self.__mana < 25:
+            raise Exception("not enough mana")
+        self.__mana -= 25
+        target.take_damage(25)
