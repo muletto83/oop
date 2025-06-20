@@ -1,69 +1,63 @@
 '''
 Assignment
-Complete all the missing methods:
+Finish the DeckOfCards class. 
+The SUITS and RANKS of each card have been provided for you as class variables. 
+You won't need to modify them, but you will need to use them.
 
-Complete the private helper methods, which are intended to be used by the other four sprinting methods.
-__raise_if_cannot_sprint(): Raise the exception: not enough stamina to sprint if the human is out of stamina.
-__use_sprint_stamina(): Remove one stamina from the human.
-For each of the sprint methods:
-Raise an error if there isn't enough stamina to sprint (use __raise_if_cannot_sprint()).
-Use the stamina needed to sprint (use __use_sprint_stamina())
-Move twice in the direction of the sprint.
+Complete the constructor:
+Initialize a private empty list called cards.
+Fill that empty list by calling the create_deck method within the constructor.
+Complete the create_deck(self) method:
+Create a (Rank, Suit) tuple for all 52 cards in the deck and append them to the cards list.
+Order matters! The cards should be appended to the list in the following order: 
+all ranks of hearts, 
+then diamonds, 
+then clubs, 
+and finally spades. 
+
+Within each suit, 
+the cards should be ordered from lowest rank (Ace) to highest rank (King).
+
+Complete the shuffle_deck(self) method:
+Use the random.shuffle() method (available from the random package) to shuffle the cards in the deck.
+Complete the deal_card(self) method:
+.pop() the first card off the top of the deck (top of the deck is the end of the list) and return it. 
+If there are no cards left in the deck the method should instead return None.
 '''
+import random
 
-class Human:
-    def sprint_right(self):
-        self.__raise_if_cannot_sprint()
-        self.__use_sprint_stamina()
-        self.move_right()
-        self.move_right()
 
-    def sprint_left(self):
-        self.__raise_if_cannot_sprint()
-        self.__use_sprint_stamina()
-        self.move_left()
-        self.move_left()
+class DeckOfCards:
+    SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"]
+    RANKS = [
+        "Ace",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "Jack",
+        "Queen",
+        "King",
+    ]
 
-    def sprint_up(self):
-        self.__raise_if_cannot_sprint()
-        self.__use_sprint_stamina()
-        self.move_up()
-        self.move_up()
+    def __init__(self):
+        pass
 
-    def sprint_down(self):
-        self.__raise_if_cannot_sprint()
-        self.__use_sprint_stamina()
-        self.move_down()
-        self.move_down()
+    def create_deck(self):
+        pass
 
-    def __raise_if_cannot_sprint(self):
-        if self.__stamina <= 0:
-            raise Exception("not enough stamina to sprint")
+    def shuffle_deck(self):
+        pass
 
-    def __use_sprint_stamina(self):
-        if self.__stamina <= 0:
-            raise Exception("not enough stamina to sprint")
-        self.__stamina -= 1
+    def deal_card(self):
+        pass
 
     # don't touch below this line
 
-    def move_right(self):
-        self.__pos_x += self.__speed
-
-    def move_left(self):
-        self.__pos_x -= self.__speed
-
-    def move_up(self):
-        self.__pos_y += self.__speed
-
-    def move_down(self):
-        self.__pos_y -= self.__speed
-
-    def get_position(self):
-        return self.__pos_x, self.__pos_y
-
-    def __init__(self, pos_x, pos_y, speed, stamina):
-        self.__pos_x = pos_x
-        self.__pos_y = pos_y
-        self.__speed = speed
-        self.__stamina = stamina
+    def __str__(self):
+        return f"The deck has {len(self.__cards)} cards"
