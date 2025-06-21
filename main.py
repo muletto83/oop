@@ -24,19 +24,27 @@ add it to a new list that keeps track of the units hit by the blast.
 Return the list of units hit by the blast.
 '''
 class Unit:
-    def __init__(self, name, pos_x, pos_y):
-        self.name = name
-        self.pos_x = pos_x
-        self.pos_y = pos_y
+    def __init__(self, name, pos_x, pos_y): # Initialize the unit with a name and position
+        self.name = name # The name of the unit
+        self.pos_x = pos_x  # The x-coordinate of the unit's position
+        self.pos_y = pos_y  # The y-coordinate of the unit's position
 
-    def in_area(self, x_1, y_1, x_2, y_2):
-        pass
-
+    def in_area(self, x_1, y_1, x_2, y_2): # Check if the unit is within the area
+        return x_1 <= self.pos_x <= x_2 and y_1 <= self.pos_y <= y_2 # Return True if the unit's position is within the area defined by the coordinates
 
 class Dragon(Unit):
     def __init__(self, name, pos_x, pos_y, fire_range):
         super().__init__(name, pos_x, pos_y)
         self.__fire_range = fire_range
 
-    def breathe_fire(self, x, y, units):
-        pass
+    def breathe_fire(self, x, y, units): # Breathe fire at a target area centered at (x, y)
+        # Initialize an empty list to keep track of units hit by the blast
+        units_hit = []
+        # Iterate over each unit in the units list
+        for unit in units:
+            # Check if the unit is in the area defined by the dragon's fire range
+            if unit.in_area(x - self.__fire_range, y - self.__fire_range, x + self.__fire_range, y + self.__fire_range):
+                # If the unit is in the area, add it to the list of units hit by the blast
+                units_hit.append(unit)
+        # Return the list of units hit by the blast
+        return units_hit
