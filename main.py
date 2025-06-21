@@ -12,15 +12,16 @@ the Square class should only need to implement the __init__ method.
 '''
 class Rectangle:
     def __init__(self, length, width):
-        pass
+        self.lenght = length
+        self.width = width
 
     def get_area(self):
-        pass
+        return self.lenght * self.width
 
     def get_perimeter(self):
-        pass
+        return (self.lenght * 2) + (self.width * 2)
 
 
 class Square(Rectangle):
     def __init__(self, length):
-        pass
+        super().__init__(length, length)        
