@@ -45,8 +45,8 @@ fruits = ["apple", "banana", "cherry", "kiwi"]
 del fruits[1]
 # fruits is ["apple", "cherry", "kiwi"]
 '''
-def main():
-    dragons = [
+def main(): 
+    dragons = [ 
         Dragon("Green Dragon", 0, 0, 1),
         Dragon("Red Dragon", 2, 2, 2),
         Dragon("Blue Dragon", 4, 3, 3),
@@ -56,8 +56,19 @@ def main():
     # don't touch above this line
 
     # ?
+    # Iterate over all the dragons and describe each one
+    for dragon in dragons:
+        describe(dragon)
+    # Iterate over all the dragons again and have each dragon breathe fire
+    for dragon in dragons:
+        # Create a copy of the dragons list excluding the current dragon
+        other_dragons = dragons.copy()
+        other_dragons.remove(dragon)
+        # Have the dragon breathe fire at (3, 3) with the other dragons as units
+        dragon.breathe_fire(3, 3, other_dragons)
+        
 
-
+    
 # don't touch below this line
 
 
