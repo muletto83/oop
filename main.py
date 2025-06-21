@@ -1,50 +1,103 @@
 '''
 Assignment
-Complete the following methods:
+Complete the bottom half of the main() function using two for-loops:
 
-Complete the unit's in_area method. 
-It accepts an "area" represented by four points: 
-x_1, y_1, x_2, and y_2. 
-The coordinates x_1 and y_1 represent the bottom-left corner,
-while x_2 and y_2 represent the top-right corner.
-Determine if the unit is within the given area 
-by using the unit's position coordinates pos_x and pos_y.
-Return True 
-if the unit's position falls inside or on the edge of the rectangle.
-Otherwise, return False.
-Complete the dragon's breathe_fire method. 
-It causes the dragon to breathe a swath of fire
-at the target area.
-The target area is centered at (x, y).
-The area stretches for __fire_range in both directions inclusively.
-Iterate over each unit in the units list,
-and check if the unit is in the area.
-If it is,
-add it to a new list that keeps track of the units hit by the blast.
-Return the list of units hit by the blast.
+Iterate over all the dragons and describe() each one in order.
+Iterate over all the dragons again and have each dragon breathe_fire at coordinatex=3, y=3.
+Pass in all the other dragons (not the one currently breathing fire) as the units parameter,
+so we can see if they get hit.
+Pass in the dragons in the same order as the original list, excluding the current dragon.
+For example, when Blue Dragon breathes fire, 
+it should check to breathe fire on the other dragons in this order:
+
+Green Dragon
+Red Dragon
+Black Dragon
+Example Output
+When you describe the dragons, your output should look like this:
+
+Green Dragon is at 0/0
+Red Dragon is at 2/2
+Blue Dragon is at 4/3
+Black Dragon is at 5/-1
+
+The output of the first dragon breathing fire should look like this:
+
+====================================
+Green Dragon breathes fire at 3/3 with range 1
+------------------------------------
+Red Dragon is hit by the fire
+Blue Dragon is hit by the fire
+====================================
+Red Dragon breathes fire at 3/3 with range 2
+------------------------------------
+
+Tips
+Copying a List
+To get a new copy of a list, use the copy() method. If you just do new_list = old_list, your new variable will just be a reference to the original list... which is not what we want.
+
+nums = [4, 3, 2, 1]
+nums_copy = nums.copy()
+# nums_copy is [4, 3, 2, 1]
+
+Delete from a List
+fruits = ["apple", "banana", "cherry", "kiwi"]
+del fruits[1]
+# fruits is ["apple", "cherry", "kiwi"]
 '''
-class Unit:
-    def __init__(self, name, pos_x, pos_y): # Initialize the unit with a name and position
-        self.name = name # The name of the unit
-        self.pos_x = pos_x  # The x-coordinate of the unit's position
-        self.pos_y = pos_y  # The y-coordinate of the unit's position
+def main():
+    dragons = [
+        Dragon("Green Dragon", 0, 0, 1),
+        Dragon("Red Dragon", 2, 2, 2),
+        Dragon("Blue Dragon", 4, 3, 3),
+        Dragon("Black Dragon", 5, -1, 4),
+    ]
 
-    def in_area(self, x_1, y_1, x_2, y_2): # Check if the unit is within the area
-        return x_1 <= self.pos_x <= x_2 and y_1 <= self.pos_y <= y_2 # Return True if the unit's position is within the area defined by the coordinates
+    # don't touch above this line
+
+    # ?
+
+
+# don't touch below this line
+
+
+def describe(dragon):
+    print(f"{dragon.name} is at {dragon.pos_x}/{dragon.pos_y}")
+
+
+class Unit:
+    def __init__(self, name, pos_x, pos_y):
+        self.name = name
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+
+    def in_area(self, x_1, y_1, x_2, y_2):
+        return (
+            self.pos_x >= x_1
+            and self.pos_x <= x_2
+            and self.pos_y >= y_1
+            and self.pos_y <= y_2
+        )
+
 
 class Dragon(Unit):
     def __init__(self, name, pos_x, pos_y, fire_range):
         super().__init__(name, pos_x, pos_y)
         self.__fire_range = fire_range
 
-    def breathe_fire(self, x, y, units): # Breathe fire at a target area centered at (x, y)
-        # Initialize an empty list to keep track of units hit by the blast
-        units_hit = []
-        # Iterate over each unit in the units list
+    def breathe_fire(self, x, y, units):
+        print("====================================")
+        print(f"{self.name} breathes fire at {x}/{y} with range {self.__fire_range}")
+        print("------------------------------------")
         for unit in units:
-            # Check if the unit is in the area defined by the dragon's fire range
-            if unit.in_area(x - self.__fire_range, y - self.__fire_range, x + self.__fire_range, y + self.__fire_range):
-                # If the unit is in the area, add it to the list of units hit by the blast
-                units_hit.append(unit)
-        # Return the list of units hit by the blast
-        return units_hit
+            in_area = unit.in_area(
+                x - self.__fire_range,
+                y - self.__fire_range,
+                x + self.__fire_range,
+                y + self.__fire_range,
+            )
+            if in_area:
+                print(f"{unit.name} is hit by the fire")
+
+
+main()
